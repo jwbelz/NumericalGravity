@@ -1,0 +1,25 @@
+[package]
+name = "asphere"
+version = "0.3.1"
+edition = "2024"
+
+[features]
+default = ["progress"]
+progress = []
+
+[dependencies]
+aeon = { path = "../../", default-features = false }
+aeon_app.workspace = true
+clap.workspace = true
+color-eyre.workspace = true
+console.workspace = true
+csv.workspace = true
+datasize.workspace = true
+eyre.workspace = true
+env_logger.workspace = true
+indicatif.workspace = true
+log.workspace = true
+rayon.workspace = true
+reborrow.workspace = true
+ringbuffer.workspace = true
+serde.workspace = true
