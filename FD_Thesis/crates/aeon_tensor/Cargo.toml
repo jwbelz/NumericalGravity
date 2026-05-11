@@ -1,0 +1,14 @@
+[package]
+name = "aeon-tensor"
+version.workspace = true
+edition = "2021"
+description = "Helper package for working with tensor-based PDEs in aeon-tk binaries"
+authors.workspace = true
+homepage.workspace = true
+repository.workspace = true
+license.workspace = true
+include = ["../../LICENSE-APACHE", "../../LICENSE-MIT", "**/*.rs", "Cargo.toml"]
+
+[dependencies]
+aeon-macros.workspace = true
+paste.workspace = true

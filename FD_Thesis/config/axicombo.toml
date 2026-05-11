@@ -1,0 +1,92 @@
+name = "axicombo"
+directory = "output_/axicombo/${brill}/${amplitude}"
+
+order = 4
+diss_order = 6
+
+
+[domain]
+radius = 48.0
+height = 48.0
+cell_size = 6
+cell_ghost = 3
+global_refine = 1
+
+[limits]
+max_levels = 16
+max_nodes = 16_000_000
+max_memory = 3_000_000_000
+max_wall_time = 414000     # Run evolution for 115 hrs
+
+[initial]
+coarsen_error = 0.0
+refine_error = 1e-6
+relax.cfl = 0.5
+relax.dampening = 0.4
+relax.max_steps = 10_000_000
+relax.tolerance = 1e-6
+
+[evolve]
+cfl = 0.2
+dissipation = 0.5
+gauge = "log_plus_one_zero_shift"
+max_coord_time = 1000.0
+max_proper_time = 9.0
+max_steps = 1_000_000
+refine_error = 1e-6
+coarsen_error = 1e-10
+regrid_interval.steps = 20
+
+[output]
+evolve_interval.steps = 1
+initial_relax_interval.steps = 1000
+horizon_relax_interval.steps = 1000
+
+vtu_stride = "per_cell"
+
+initial_vtu = false
+initial_levels_vtu = false
+initial_relax_vtu = false
+
+evolve_vtu = false
+evolve_history_csv = true
+
+horizon_relax_vtu = false
+
+[cache]
+initial = true
+evolve = true
+evolve_interval.steps = 4000
+
+[logging]
+style = "incremental"
+evolve.steps = 100000
+initial.steps = 100000
+
+[horizon]
+search = false
+search_interval.steps = 500
+search_initial_radius = 5.0
+global_refine = 6
+relax.cfl = 0.5
+relax.dampening = 0.4
+relax.max_steps = 10_000
+relax.tolerance = 1e-4
+
+on_max_search_steps = "ignore"
+on_search_not_contained = "ignore"
+on_search_diverged = "ignore"
+on_search_converged = "collapse"
+on_search_converged_to_zero = "ignore"
+
+[[sources]]
+type = "scalar_field"
+profile.type = "gaussian"
+profile.amplitude = "${amplitude}"
+profile.sigma = [5.35, 5.35]
+mass = 0.0
+
+[[sources]]
+type = "brill"
+amplitude = "${brill}"
+sigma = [1.0, 1.0]

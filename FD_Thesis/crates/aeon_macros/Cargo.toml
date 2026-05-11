@@ -1,0 +1,20 @@
+[package]
+name = "aeon-macros"
+version.workspace = true
+edition = "2021"
+description = "Macros exported by aeon-tk"
+authors.workspace = true
+homepage.workspace = true
+repository.workspace = true
+license.workspace = true
+include = ["../../LICENSE-APACHE", "../../LICENSE-MIT", "**/*.rs", "Cargo.toml"]
+
+[lib]
+proc-macro = true
+
+[dependencies]
+proc-macro2 = "1.0"
+quote = "1.0"
+syn = { version = "2.0", features = ["full"] }
+
+num = "0.4.1"

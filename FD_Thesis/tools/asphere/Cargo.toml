@@ -1,0 +1,32 @@
+[package]
+name = "asphere"
+version.workspace = true
+edition = "2024"
+description = "Binary for simulating spherically symmetric critical phenomena"
+authors.workspace = true
+homepage.workspace = true
+repository.workspace = true
+license.workspace = true
+readme = "README.md"
+include = ["../../LICENSE-APACHE", "../../LICENSE-MIT", "**/*.rs", "Cargo.toml"]
+
+[features]
+default = ["progress"]
+progress = []
+
+[dependencies]
+aeon.workspace = true
+aeon-app.workspace = true
+clap.workspace = true
+color-eyre.workspace = true
+console.workspace = true
+csv.workspace = true
+datasize.workspace = true
+eyre.workspace = true
+env_logger.workspace = true
+indicatif.workspace = true
+log.workspace = true
+rayon.workspace = true
+reborrow.workspace = true
+ringbuffer.workspace = true
+serde.workspace = true
